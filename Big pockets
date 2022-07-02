@@ -1,0 +1,100 @@
+class returnOnInvestment():
+    
+    def __init__(self, income, expenses, cash_flow):
+        self.income = []
+        self.expenses = []
+        self.cash_flow = []
+        
+    def showIncome(self):
+        my_income = input(" Which source of income would you like to calculate? Rental/Misc/Done: ")
+        
+        if my_income.lower() == 'rental':
+            rental = int(input("Enter your rental income: "))
+            self.income.append(rental)
+            
+        elif my_income.lower() == 'misc':
+            storage = int(input("Enter your miscellaneous income: "))
+            self.income.append(storage)
+            
+        elif my_income.lower == 'done':
+            pass
+         
+        else:
+            print("Try another command")
+        
+        monthly_income = int(sum(self.income))
+            
+        print(f"Your total monthly income is: {monthly_income}")
+            
+    def showExpenses(self):
+        my_expense = (input(" Which expense would you like to calculate? Tax/Insurance/Utilities/Repairs/Mortgage/Other: "))
+              
+        if my_expense.lower() == 'tax':
+            tax = int(input("Please state your tax expense: "))
+            self.expenses.append(tax)
+              
+        elif my_expense.lower() == 'insurance':
+            insurance = int(input("Please state your insurance expense: "))
+            self.expenses.append(insurance)
+              
+        elif my_expense.lower() == 'utilities':
+            utilities = int(input("Please state your utilities expense: "))
+            self.expenses.append(storage)
+              
+        elif my_expense.lower() == 'repairs':
+            repairs = int(input("Please state your repairs expense: "))
+            self.expenses.append(repairs)
+            
+        elif my_expense.lower() == 'mortgage':
+            mortgage = int(input("Please state your mortgage expense: "))
+            self.expenses.append(mortgage)
+            
+        elif my_expense.lower() == 'Misc':
+            other = int(input("Please state any 'miscellaneous' expenses: "))
+            self.expenses.append(other)
+            
+        elif my_expense.lower == 'quit':
+            pass
+        
+        else:
+            print("Try another command")
+       
+        monthly_expenses = int(sum(self.expenses))
+        
+        print(f"Your monthly expenses total to: {monthly_expenses}")
+              
+    def showCashFlow(self):
+        my_cashFlow = sum(self.income) - sum(self.expenses)
+        self.cash_flow.append(my_cashFlow)
+        print(f"Current cash flow is: {my_cashFlow}")
+        
+    
+              
+    def showROI(self):
+        total_investment = int(input("Please state your total investment: "))
+        cashFlow = sum(self.cash_flow)
+        annual_cashFlow = cashFlow * 12
+        ROI = (annual_cashFlow / total_investment) * 100
+    
+        print(f"My cash on ROI = {ROI} percent.")
+        
+house_Value = returnOnInvestment([], [], [])
+
+def run():
+    while True:
+        response = input("Select one of the following options. (select Income if just beginning): Income/Expenses/Cash Flow/ROI - Quit to end - ")
+        
+        if response.lower() == 'income':
+            house_Value.showIncome()
+        elif response.lower() == 'expenses':
+            house_Value.showExpenses()
+        elif response.lower() == 'cash flow':
+            house_Value.showCashFlow()
+        elif response.lower() == 'roi':
+            house_Value.showROI()
+        elif response.lower() == 'quit':
+            break
+        else:
+            print("Try another command")
+            
+run()
